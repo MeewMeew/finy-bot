@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zalo Credentials</title>
+</head>
+
+<body>
+  <div style="width: 200px; height: auto;">
+    <input type="text" id="imei" style="width: 100%;" readonly />
+    <input type="text" id="user-agent" style="width: 100%;" readonly />
+    <textarea id="cookie" rows="10" style="width: 100%;" readonly></textarea>
+    <div style="background: #d30a0a; color: white; margin-top: 5px;" title="">
+      <label for="export"
+        style="padding: 5px; display: block; font-family: Arial, Helvetica, sans-serif; text-align: center;">Export
+        Zalo Credentials</label>
+      <input id="export" name="export" type="button" value="Export"
+        style="opacity: 0;height: 0px;width: 350px;display: contents;" />
+    </div>
+    <div style="background: green; color: white; margin-top: 5px;" title="">
+      <label for="refresh"
+        style="padding: 5px; display: block; font-family: Arial, Helvetica, sans-serif; text-align: center;">Refresh
+        Page</label>
+      <input id="refresh" name="refresh" type="button" value="Refresh"
+        style="opacity: 0;height: 0px;width: 350px;display: contents;" />
+    </div>
+  </div>
+  <script src="popup.js"></script>
+  <script src="custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "finy-bot",
+  "version": "1.0.0",
+  "module": "src/index.ts",
+  "type": "module",
+  "author": {
+    "name": "MewTheDev",
+    "email": "meewmeew.info@gmail.com"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "dev:watch": "bun --watch src/main.ts",
+    "build": "bun build --entrypoints ./src/main.ts ./src/index.ts --format=esm --outdir=build --minify --splitting --target=bun",
+    "start": "bun run build/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/luxon": "^3.4.2",
+    "@types/semver": "^7.5.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "extract-zip": "^2.0.1",
+    "luxon": "^3.5.0",
+    "semver": "^7.6.3",
+    "xior": "^0.6.1",
+    "xlsx": "^0.18.5",
+    "zca-js": "^2.0.0-alpha.5"
+  }
+}

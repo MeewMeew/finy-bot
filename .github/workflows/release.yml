@@ -1,0 +1,39 @@
+name: Finy Bot Release
+
+on:
+  push:
+    branches: ["main"]
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get package version
+        id: version
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
+
+      - name: Archive release
+        run: |
+          zip -r finy-bot-v${{ env.version }}.zip . -x .git/\* -x .github/\*
+
+      - name: List files
+        run: ls -la
+
+      - name: Create release
+        run: |
+          gh release create "v${{ env.version }}" \
+            finy-bot-v${{ env.version }}.zip \
+            --title "Release v${{ env.version }}" \
+            --notes "This release of Finy Bot version ${{ env.version }}."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
